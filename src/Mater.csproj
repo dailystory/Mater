@@ -142,6 +142,7 @@
     <Content Include="articles\TOC.md" />
     <Content Include="articles\auto-publish\azure.md" />
     <Content Include="articles\demos\hello.md" />
+    <None Include="dailystory-docs - Web Deploy.pubxml" />
     <None Include="Scripts\MarkdownDeep Quick Reference.txt" />
     <None Include="Scripts\MarkdownDeep License.txt" />
     <None Include="Scripts\jquery-3.1.1.slim.min.map" />

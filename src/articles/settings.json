@@ -4,13 +4,16 @@
 		"text": "DailyStory",
 		"path": "https://app.dailystory.com/Content/images/ds-256-web-logo.png"
 	},
-	"navigation": [{
-		"text": "Welcome",
-		"url": "/",
-	}, {
-		"text": "Contribute",
-		"url": "https://cnn.com",
-	}],
+  "navigation": [
+    {
+      "text": "Welcome",
+      "url": "/",
+    },
+    {
+      "text": "Contribute",
+      "url": "https://github.com/dailystory/Mater"
+    }
+  ],
 	"backButton": {
 		"text": "Back to DailyStory.com",
 		"url": "https://www.dailystory.com",
