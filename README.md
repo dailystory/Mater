@@ -37,6 +37,15 @@ You can add a Json string to the start of your markdown file to tell Mater the p
 
 For example, you can set the &lt;title&gt; of you page by including {title:"My Title"}.
 
+### Table of Contents
+The Table of Contents, shown to the left of the documentation, is editing in the \articles\TOC.md file.
+
+### Site Logo, Navigation and Back Button
+The logo used for your documentation site along with all of the top-level navigation is configured in the \articles\settings.json file.
+
+### Suggest Edits Link
+The suggest edits link, shown to the right of all documentation pages, is built dynamically. You'll need to set the base reference to your GitHub docs in settings.json. Mater will do the rest.
+
 ## Customizing Mater's UI
 Mater is built using the [Bootstrap framework](http://getbootstrap.com/), but you can easily add your own CSS, favicon, Google tags and more to Mater.
 
