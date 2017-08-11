@@ -13,19 +13,15 @@ namespace Mater
 		public string Markdown { get; set; }
 		public string FilePath { get; set; }
         public string EditPath { get; set; }
+        public string SettingsPath { get; set; }
 
-		public Article()
-		{
-		}
-
-		public Article(string markdown, string filepath, string editpath)
-		{
-			Markdown = markdown;
-			FilePath = filepath;
-            EditPath = editpath;
-
-			ProcessMarkdown();
-		}
+        public Settings SiteSettings
+        {
+            get
+            {
+                return Settings.GetSettings(SettingsPath);
+            }
+        }
 
 		public string Title
 		{
@@ -79,7 +75,7 @@ namespace Mater
             }
         }
 
-		void ProcessMarkdown()
+		public void ProcessMarkdown()
 		{
 			if (string.IsNullOrEmpty(Markdown))
 				throw new Exception("Markdown data must exist before Article model can be created.");

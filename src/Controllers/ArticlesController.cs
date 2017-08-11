@@ -14,15 +14,13 @@ namespace Mater.Controllers
 		{
 			string mdFile = string.Empty;
 			string mdPath = string.Empty;
-            string editPath = string.Empty;
 
 			try {
 				// Load the requested mark down file
 				mdPath = GetMarkdownPath(Response, path);
 
-				mdFile = System.IO.File.ReadAllText(mdPath);
-
-                editPath = mdPath.Replace(Server.MapPath("~/"), string.Empty).Replace("\\", "/");
+                // Read the markdown file
+                mdFile = System.IO.File.ReadAllText(mdPath);
 			}
             catch (Exception)
             {
@@ -31,9 +29,19 @@ namespace Mater.Controllers
             }
 
             // Create an instance of the Article model
-            Article article = new Article(mdFile, mdPath, editPath);
+            Article article = new Article()
+            {
+                Markdown = mdFile,
+                FilePath = mdPath,
+                EditPath = mdPath.Replace(Server.MapPath("~/"), string.Empty).Replace("\\", "/"),
+                SettingsPath = Server.MapPath("~/articles/settings.json")
+            };
 
-			return View("~/Views/Articles/Index.cshtml", article);
+            // Process the article
+            article.ProcessMarkdown();
+
+
+            return View("~/Views/Articles/Index.cshtml", article);
 		}
 
 		public string GetMarkdownPath(HttpResponseBase Response, string path)

@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -85,11 +86,13 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="lib\Settings.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleToc.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="articles\head.html" />
+    <None Include="articles\settings.json" />
     <Content Include="articles\styles.css" />
     <Content Include="articles\auto-publish\azure-01.png" />
     <Content Include="articles\auto-publish\azure-02.png" />
