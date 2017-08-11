@@ -8,7 +8,7 @@ Mater is open source and was originally developed by [Rob Howard](https://twitte
 ## Auto-Publishing Documentation
 Mater makes it insanely easy to publish documentation. It was originally designed to work with Microsoft Azure's GitHub integration - when new documentation files are checked in they are automatically deployed to your documentation site running Mater.
 
-[Instructions for setting up Azure auto-publishing](https://github.com/dailystory/Mater/blob/master/src/articles/auto-publish/azure.md)
+[Instructions for setting up Azure auto-publishing](https://github.com/dailystory/Mater/wiki/Auto-Publish-with-Microsoft-Azure)
 
 ## Getting Started
 Getting started with Mater is easy. 
