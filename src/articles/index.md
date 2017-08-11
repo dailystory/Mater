@@ -13,7 +13,7 @@ Mater is open source and was originally developed by [Rob Howard](https://twitte
 ## Auto-Publishing Documentation
 Mater makes it insanely easy to publish documentation. It was originally designed to work with Microsoft Azure's GitHub integration - when new documentation files are checked in they are automatically deployed to your documentation site running Mater.
 
-[Instructions for setting up Azure auto-publishing](/publish/azure)
+[Instructions for setting up Azure auto-publishing](/auto-publish/azure)
 
 ## Getting Started
 Getting started with Mater is easy. 
@@ -21,5 +21,5 @@ Getting started with Mater is easy.
 > Important - Mater requires a physcial or virtual directory **\articles** and expects to find both an **index.md** file and a **TOC.md** file.
 
 * Add Markdown files, images and other resources to your \articles directory.
-* You can create sub-folders with their own index.md. For example, \articles\publish\azure.md is accessible as [/publish/azure](/publish/azure).
+* You can create sub-folders with their own index.md. For example, \articles\auto-publish\azure.md is accessible as [/auto-publish/azure](/auto-publish/azure).
 * Other Markdown files can be referenced directly by removing the .md extension. For example, \articles\demos\hello.md is accessible as [/demos/hello](/demos/hello)
