@@ -47,5 +47,14 @@ Mater is built using the [Bootstrap framework](http://getbootstrap.com/), but yo
 
 Simply create a \articles\head.html file - you'll find an example provided in the \articles folder. Content in head.html will be automatically included in the &lt;head&gt; section of your pages.
 
+### Table of Contents
+The Table of Contents, shown to the left of the documentation, is editing in the \articles\TOC.md file.
+
+### Site Logo, Navigation and Back Button
+The logo used for your documentation site along with all of the top-level navigation is configured in the \articles\settings.json file.
+
+### Suggest Edits Link
+The suggest edits link, shown to the right of all documentation pages, is built dynamically. You'll need to set the base reference to your GitHub docs in settings.json. Mater will do the rest.
+
 ## Why Mater?
 git-r-done.
