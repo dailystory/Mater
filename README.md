@@ -1,38 +1,46 @@
 # Mater
+![Mater](https://github.com/dailystory/Mater/raw/master/media/git-r-done.png "Mater")
+
 Mater is a super-simple, open source, GitHub-based doc system.
+
+Instead of requiring a complex content management system, which typically requires a database, Mater uses [Markdown](https://en.wikipedia.org/wiki/Markdown) files stored and versioned in GitHub and auto-published in an Azure Web App.
+
+Mater is open source and was originally developed by for use as [DailyStory's](https://dailystory.com) documentation system.
 
 ## Live Demo
 [See Mater powering DailyStory's documentation](https://docs.dailystory.com) from [DailyStory's Docs Repository](https://github.com/dailystory/docs).
 
-Instead of requiring a complex content management system, which typically requires a database, Mater uses [Markdown](https://en.wikipedia.org/wiki/Markdown) files stored and versioned in GitHub.
-
-Mater is open source and was originally developed by [Rob Howard](https://twitter.com/robhoward) for use as [DailyStory's](https://dailystory.com) documentation system.
-
 ## Auto-Publishing Documentation
-Mater makes it insanely easy to publish documentation. It was originally designed to work with Microsoft Azure's GitHub integration - when new documentation files are checked in they are automatically deployed to your documentation site running Mater.
+Mater makes it insanely easy to publish documentation. 
+
+Mater is designed to work with Microsoft Azure's GitHub integration. When new documentation files are checked in they are automatically published to your documentation website running Mater.
+
+Documentation is versioned and maintained in GitHub. Plus, documentation can be edited using virtually any document editing application.
 
 [Instructions for setting up Azure auto-publishing](https://github.com/dailystory/Mater/wiki/Auto-Publish-with-Microsoft-Azure)
 
 ## Getting Started
-Getting started with Mater is easy. 
+Getting started with Mater is simple. 
 
-> Important - Mater requires a physcial or virtual directory **\articles** and expects to find both an **index.md** file and a **TOC.md** file.
+The only requirement is that Mater expects a physcial or virtual directory **\articles** and to find both an **\articles\index.md** file and a **\articles\TOC.md** file.
 
-* Add Markdown files, images and other resources to your \articles directory.
-* You can create sub-folders with their own index.md. For example, \articles\auto-publish\azure.md is accessible as /auto-publish/azure.
-* Other Markdown files can be referenced directly by removing the .md extension. For example, \articles\demos\hello.md is accessible as /demos/hello.
+Within the \articles directory you add markdown files (any file name eding with .md), images, and other resources.
 
-## Setting title, description and more 
-If your markdown file starts with a Json string, Mater will read that Json string for settings.
+You can create sub-folders with their own index.md. For example, \articles\auto-publish\azure.md is accessible as /auto-publish/azure.
+
+Markdown files can be referenced directly by removing the .md extension. For example, \articles\demos\hello.md is accessible as /demos/hello.
+
+Images added to your directories and referenced in your markdown files.
+
+## Setting Page Title, Description and More
+You can add a Json string to the start of your markdown file to tell Mater the page title, description, and more.
 
 For example, you can set the &lt;title&gt; of you page by including {title:"My Title"}.
 
 ## Customizing Mater's UI
-Mater is built using the [Bootstrap framework](http://getbootstrap.com/). 
+Mater is built using the [Bootstrap framework](http://getbootstrap.com/), but you can easily add your own CSS, favicon, Google tags and more to Mater.
 
-You can easily add your own CSS, favicon, Google tags and more to Mater.
-
-Create a head.html file, such as the one in the \articles folder. Content in head.html will be automatically included in the &lt;head&gt; section of your content.
+Simply create a head.html file - you'll find an example provided in the \articles folder. Content in head.html will be automatically included in the &lt;head&gt; section of your pages.
 
 ## Why Mater?
 git-r-done.
