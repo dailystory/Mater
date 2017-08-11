@@ -1,6 +1,5 @@
-# Mater
 ![Mater](https://github.com/dailystory/Mater/raw/master/media/git-r-done.png "Mater")
-
+# Mater
 Mater is a super-simple, open source, GitHub-based doc system.
 
 Instead of requiring a complex content management system, which typically requires a database, Mater uses [Markdown](https://en.wikipedia.org/wiki/Markdown) files stored and versioned in GitHub and auto-published in an Azure Web App.
