@@ -1,6 +1,9 @@
 # Mater
 Mater is a super-simple, open source, GitHub-based doc system.
 
+## Live Demo
+[See Mater powering DailyStory's documentation](https://docs.dailystory.com) from [DailyStory's Docs Repository](https://github.com/dailystory/docs).
+
 Instead of requiring a complex content management system, which typically requires a database, Mater uses [Markdown](https://en.wikipedia.org/wiki/Markdown) files stored and versioned in GitHub.
 
 Mater is open source and was originally developed by [Rob Howard](https://twitter.com/robhoward) for use as [DailyStory's](https://dailystory.com) documentation system.
