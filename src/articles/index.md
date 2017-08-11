@@ -3,6 +3,7 @@
 	title: 'Welcome to Mater',
 	description: 'Mater is a super-simple GitHub-based doc system'
 }
+![Mater](https://github.com/dailystory/Mater/raw/master/media/git-r-done.png "Mater")
 # Welcome to Mater
 Mater is a super-simple, open source, GitHub-based doc system.
 
