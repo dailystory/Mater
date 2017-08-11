@@ -19,10 +19,11 @@ Documentation is versioned and maintained in GitHub. Plus, documentation can be 
 [Instructions for setting up Azure auto-publishing](https://github.com/dailystory/Mater/wiki/Auto-Publish-with-Microsoft-Azure)
 
 ## Getting Started
-Getting started with Mater is simple. 
+Getting started with Mater is simple: download the code, compile, and run.
 
-The only requirement is that Mater expects a physcial or virtual directory **\articles** and to find both an **\articles\index.md** file and a **\articles\TOC.md** file.
+The only requirement is that Mater expects to find a **\articles\index.md** file and a **\articles\TOC.md** file.
 
+## Writing Documentation
 Within the \articles directory you add markdown files (any file name eding with .md), images, and other resources.
 
 You can create sub-folders with their own index.md. For example, \articles\auto-publish\azure.md is accessible as /auto-publish/azure.
