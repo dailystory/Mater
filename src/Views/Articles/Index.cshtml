@@ -1,0 +1,5 @@
+﻿@model Article
+@{
+	Layout = "~/Views/Shared/" + Model.Layout + ".cshtml";
+}
+@Html.Raw(Model.Body)
