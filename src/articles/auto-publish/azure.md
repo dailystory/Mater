@@ -43,7 +43,7 @@ When you completed step 4 Azure will update site\repository on your Azure Web Ap
 
 For example, [DailyStory's docs are published here](https://github.com/dailystory/docs). When this GitHub repository is deployed to Azure the files are added and updated in the site\repository directory. 
 
-> Since DailyStory's repository contains an 'articles' folder we need to map our virtual directory as folows:
+> Since DailyStory's repository contains an 'articles' folder we need to map our virtual directory as follows:
 
 ![Virtual directory](/articles/auto-publish/azure-05.png "Virtual directory")
 
