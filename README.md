@@ -30,7 +30,7 @@ You can create sub-folders with their own index.md. For example, \articles\auto-
 
 Markdown files can be referenced directly by removing the .md extension. For example, \articles\demos\hello.md is accessible as /demos/hello.
 
-Images added to your directories and referenced in your markdown files.
+Want to include images? Just copy and paste images into your directories and reference them in your markdown files.
 
 ## Setting Page Title, Description and More
 You can add a Json string to the start of your markdown file to tell Mater the page title, description, and more.
