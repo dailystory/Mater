@@ -1,8 +1,8 @@
----
-layout: _ArticleLayout
-title: Welcome to Mater
-description: Mater is a super-simple GitHub-based doc system
----
+{
+	layout: '_ArticleLayout',
+	title: 'Welcome to Mater',
+	description: 'Mater is a super-simple GitHub-based doc system'
+}
 # Welcome to Mater
 Mater is a super-simple, open source, GitHub-based doc system.
 
@@ -23,3 +23,18 @@ Getting started with Mater is easy.
 * Add Markdown files, images and other resources to your \articles directory.
 * You can create sub-folders with their own index.md. For example, \articles\auto-publish\azure.md is accessible as [/auto-publish/azure](/auto-publish/azure).
 * Other Markdown files can be referenced directly by removing the .md extension. For example, \articles\demos\hello.md is accessible as [/demos/hello](/demos/hello)
+
+## Setting title, description and more 
+If your markdown file starts with a Json string, Mater will read that Json string for settings.
+
+For example, you can set the &lt;title&gt; of you page by including {title:"My Title"}.
+
+## Customizing Mater's UI
+Mater is built using the [Bootstrap framework](http://getbootstrap.com/). 
+
+You can easily add your own CSS, favicon, Google tags and more to Mater.
+
+Create a head.html file, such as the one in the \articles folder. Content in head.html will be automatically included in the &lt;head&gt; section of your content.
+
+## Why Mater?
+git-r-done.

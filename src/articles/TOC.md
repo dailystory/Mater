@@ -2,4 +2,4 @@
 ## [What is Mater?](/)
 
 # Auto-Publishing
-## [Microsoft Azure](/publish/azure)
+## [Microsoft Azure](/auto-publish/azure)

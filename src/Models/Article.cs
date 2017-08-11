@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace Mater
 {
@@ -84,10 +85,10 @@ namespace Mater
 				throw new Exception("Markdown data must exist before Article model can be created.");
 
 			// Get metadata from the markdown file
-			Metadata = GetMetaData(Markdown);
+			Metadata = GetJsonMetaData(Markdown);
 
-			// Remove any misc from the markdown file
-			string cleanMd = CleanMarkdown(Markdown);
+			// Get the markdown file without json settings
+			string cleanMd = RemoveJsonMetaData(Markdown);
 
 			// Create an instance of MarkdownDeep and set options
 			var md = new MarkdownDeep.Markdown();
@@ -98,35 +99,57 @@ namespace Mater
 			Body = md.Transform(cleanMd);
 		}
 
-		Dictionary<string, string> GetMetaData(string md)
-		{
-			Dictionary<string, string> metadata = new Dictionary<string, string>();
 
-			// Get meta data
-            var v = Regex.Match(md, @"(?<=---\r\n).*?(?=\r\n---)", RegexOptions.Singleline);
+        /// <summary>
+        /// Process the settings found in the markdown 
+        /// </summary>
+        /// <param name="md"></param>
+        /// <returns></returns>
+        static Dictionary<string, string> GetJsonMetaData(string md)
+        {
+            Dictionary<string, string> metadata = null;
 
-            // Split the string by newline
-            string[] lines = v.Value.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            if (string.IsNullOrEmpty(md))
+                throw new ArgumentException("The string containing markdown is empty.");
 
-			// Split and trim each line
-			for (int i = 0; i < lines.Length; i++)
-			{
-				string[] line = lines[i].Split(':');
+            if (md.IndexOf('{') != 0 || md.IndexOf('}') == 0)
+                return new Dictionary<string, string>();
 
-                try { 
-    				metadata.Add(line[0], line[1].Trim());
-                } catch { }
+            // json settings are expected at the beginning of the file
+            string json = md.Substring(0, md.IndexOf('}') + 1);
 
+            // deserialized meta data into dictionary
+            try
+            {
+                metadata = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            }
+            catch (JsonReaderException)
+            {
+#if DEBUG
+                throw new Exception("There is a problem with the settings for this page.");
+#endif
+                // in production we ignore this exception
+                metadata = new Dictionary<string, string>();
             }
 
-			return metadata;
-		}
+            return metadata;
+        }
 
-		string CleanMarkdown(string markdown)
+        /// <summary>
+        /// Remove the json settings from the markdown 
+        /// </summary>
+        /// <param name="md"></param>
+        /// <returns></returns>
+        static string RemoveJsonMetaData(string md)
 		{
-			// Clean the markdown file
-			return Regex.Replace(markdown, @"(---\r\n).*?(\r\n---)", string.Empty, RegexOptions.Singleline);
+            if (string.IsNullOrEmpty(md))
+                throw new ArgumentException("The string containing markdown is empty.");
 
+            if (md.IndexOf('{') != 0 || md.IndexOf('}') == 0)
+                return md;
+
+            // Clean the markdown file
+            return md.Substring(md.IndexOf('}') + 1);
 		}
 	}
 }
