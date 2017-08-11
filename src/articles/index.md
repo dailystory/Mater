@@ -45,7 +45,7 @@ For example, you can set the &lt;title&gt; of you page by including {title:"My T
 ## Customizing Mater's UI
 Mater is built using the [Bootstrap framework](http://getbootstrap.com/), but you can easily add your own CSS, favicon, Google tags and more to Mater.
 
-Simply create a head.html file - you'll find an example provided in the \articles folder. Content in head.html will be automatically included in the &lt;head&gt; section of your pages.
+Simply create a \articles\head.html file - you'll find an example provided in the \articles folder. Content in head.html will be automatically included in the &lt;head&gt; section of your pages.
 
 ## Why Mater?
 git-r-done.
