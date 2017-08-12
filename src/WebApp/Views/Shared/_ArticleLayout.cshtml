@@ -9,7 +9,7 @@
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.min.css'>
     <link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/styles.min.css")'>
+    <link rel="stylesheet" href='@Url.Content("~/Content/styles.css")'>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
@@ -55,12 +55,21 @@
             </div>
         </nav>
     </div>
-    <div class="container-fluid subhead">
-        <div class="row">
-            <div class="col-md-3">
+    @if (Model.SiteSettings.IsSearchEnabled) { 
+    <div class="container-fluid subhead searchArea">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="inputWrapper">
+                        <input type="text" id="search" />
+                        <div class="inputButtons"><a href="#" id="searchButton">search</a></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    }
     <div class="container">
         <div class="row">
             <div class="hidden-xs col-md-2 tocContent" style="overflow: auto; height:100vh">
@@ -98,8 +107,21 @@
             Mater.editPath = '@(Model.SiteSettings.EditPath + Model.EditPath)';
             Mater.Article.ready();
 
-        });
+            // handle search click
+            $('#search').on('keydown', function (e) {
 
+                if (e.which == 13) {
+
+                    window.location = "/search?s=" + $('#search').val();
+
+                }
+            });
+
+            $('#searchButton').click(function () {
+                window.location = "/search?s=" + $('#search').val();
+            });
+
+        });
 
 
     </script>

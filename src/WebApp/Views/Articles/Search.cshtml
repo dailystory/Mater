@@ -71,18 +71,18 @@
         <div class="row">
             <div class="col-md-12" id="searchContent">
                 <div class="resultCount">@Model.SearchResults.TotalCount results in (@(string.Format("{0:0.00}", Model.SearchTime)) seconds)</div>
-        @{
-            foreach (ArticleDocument a in Model.SearchResults)
-            {
-                <h2><a href="@a.Path">@a.Title</a></h2>
-                <div class="url">@a.Path</div>
-                <div class="result">
-                    <span class="date">@a.LastModified.ToString("yyyy-M-dd") - </span>
-                    @a.Excerpt(200)
-                </div>
+                @{
+                    foreach (ArticleDocument a in Model.SearchResults)
+                    {
+                        <h2><a href="@a.Path">@a.Title</a></h2>
+                        <div class="url">@a.Path</div>
+                        <div class="result">
+                            <span class="date">@a.LastModified.ToString("yyyy-M-dd") - </span>
+                            @a.Excerpt(200)
+                        </div>
 
-            }
-        }
+                    }
+                }
                 <footer>
                     Documentation powerd by <a href="https://github.com/dailystory/Mater">Mater</a>
                     <br />
@@ -91,9 +91,8 @@
             </div>
         </div>
     </div>
-</body>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
         $(document).ready(function () {
 
@@ -115,6 +114,7 @@
 
 
 
-</script>
+    </script>
+</body>
 
 </html>

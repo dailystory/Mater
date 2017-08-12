@@ -4,9 +4,6 @@
     color: #333;
 }
 
-a:visited {
-    color: #609;
-}
 
 a:active {
     color:#1a0dab;
@@ -278,4 +275,9 @@ footer {
         padding-right: 20px;
         padding-top: 10px;
     }
+
+    #searchContent a:visited {
+        color: #609;
+    }
+
 
