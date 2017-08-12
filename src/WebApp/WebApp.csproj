@@ -89,6 +89,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Models\ArticleToc.cs" />
+    <Compile Include="Models\SearchModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="articles\head.html" />
@@ -124,6 +125,7 @@
     <Content Include="Views\Articles\Index.cshtml" />
     <Content Include="Views\Shared\_ArticleLayout.cshtml" />
     <Content Include="Views\Shared\_ArticleTOC.cshtml" />
+    <Content Include="Views\Articles\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="articles\index.md" />

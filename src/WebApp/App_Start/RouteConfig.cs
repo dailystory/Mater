@@ -28,6 +28,15 @@ namespace Mater
                 defaults: new { controller = "Articles", action = "JSON" }
             );
 
+            // return json sitemap this returns all .md paths in the 
+            // ~/articles directory and all children. This is used by 
+            // search indexer job
+            routes.MapRoute(
+                name: "Search",
+                url: "search",
+                defaults: new { controller = "Articles", action = "Search" }
+            );
+
             // Catch all other requests and redirect them to the main 
             // Article Controller
             routes.MapRoute(

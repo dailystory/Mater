@@ -4,6 +4,13 @@
     color: #333;
 }
 
+a:visited {
+    color: #609;
+}
+
+a:active {
+    color:#1a0dab;
+}
 h1 {
     margin-top: 40px;
     padding-bottom: 20px;
@@ -189,6 +196,50 @@ ol.step li {
         text-shadow: 0 0 2px rgba(33, 26, 145, 0.35);
     }
 
+#searchContent {
+    max-width: 700px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    margin-top: 30px;
+}
+
+    #searchContent .result {
+        margin-top: 0px;
+        margin-bottom: 25px;
+        line-height: 1.4;
+        word-wrap: break-word;
+        font-size:13px;
+    }
+
+    #searchContent .date {
+        font-size:12px;
+        color:#808080;
+    }
+
+    #searchContent .url {
+        color: #006621;
+        font-size:14px
+    }
+
+#searchContent h2 {
+    margin: 0px 0px;
+    font-size: 18px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight:normal;
+}
+
+    #searchContent .resultCount {
+        color: #808080;
+        font-size: 13px;
+        padding: 10px 0 30px 0;
+    }
+
 footer {
     float: right;
     text-align:right;
@@ -196,3 +247,35 @@ footer {
     color: #999;
     margin: 25px 0;
 }
+
+.searchArea {
+    height: 70px;
+}
+
+    .searchArea > div {
+        margin-top: 16px;
+    }
+
+    .searchArea .inputWrapper {
+        box-shadow: 3px 3px 5px #ddd;
+        background-color: #fff;
+        border: solid 1px #ddd;
+        width: 600px;
+    }
+
+    .searchArea input {
+        width: 520px;
+        height: 40px;
+        padding: 10px;
+        outline: none;
+        border: #fff;
+        display: inline-block;
+    }
+
+    .searchArea .inputButtons {
+        display: inline-block;
+        float: right;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+

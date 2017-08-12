@@ -63,6 +63,21 @@ namespace Mater.Controllers
 
         }
 
+        public async Task<ActionResult> Search(string s, int i = 0, int ps = 25)
+        {
+
+            SearchModel m = new SearchModel() { SettingsPath = Server.MapPath("~/articles/settings.json") };
+            m.SearchText = s;
+
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            m.SearchResults = await ArticleDocument.GetArticleDocumentsAsync(s, i, ps);
+            watch.Stop();
+
+            m.SearchTime = watch.Elapsed.TotalSeconds;
+
+            return View("~/Views/Articles/Search.cshtml", m);
+        }
+
 
         Article LoadArticle(string path)
         {

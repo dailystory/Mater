@@ -41,11 +41,11 @@ namespace Mater.WebJobs
                 // performance when we call VerifyAndClean
                 inSiteMap.Add(url.Path, true);
 
-                if (url.LastModifiedDate > DateTime.UtcNow.AddDays(-1))
-                {
+//                if (url.LastModifiedDate > DateTime.UtcNow.AddDays(-1))
+//                {
                     Article article = await FetchArticleAsync(site, url);
                     articlesToIndex.Add(article);
-                }
+//                }
             }
 
             // 3. Index articles
@@ -83,7 +83,20 @@ namespace Mater.WebJobs
         /// <returns></returns>
         static async Task IndexArticlesAsync(List<Article> articles)
         {
-            // do work to insert into azure search here
+            List<ArticleDocument> list = new List<ArticleDocument>();
+
+            // create the index if it does not exist
+            Search.CreateIndex();
+
+            // Convert to ArticleDocument
+            foreach (Article a in articles)
+            {
+                ArticleDocument d = new ArticleDocument();
+                d.FromArticle(a);
+                list.Add(d);
+            }
+
+            await Search.MergeOrUploadAsync(list);
         }
 
         /// <summary>

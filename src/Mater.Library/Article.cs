@@ -1,6 +1,4 @@
 ﻿using System;
-//using Microsoft.Azure.Search;
-//using Microsoft.Azure.Search.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +8,11 @@ using System.Data;
 
 namespace Mater.Library
 {
-//    [SerializePropertyNamesAsCamelCase]
     public class Article
     {
         string urlPath = string.Empty;
+        string title = string.Empty;
+        string description = string.Empty;
 
         [JsonIgnore]
         public Dictionary<string, string> Metadata { get; set; }
@@ -29,7 +28,6 @@ namespace Mater.Library
 
         [JsonIgnore]
         public string EditPath { get; set; }
-
 
         /// <summary>
         /// This returns the URL friendly path of the article relative to the domain
@@ -71,6 +69,9 @@ namespace Mater.Library
         {
             get
             {
+                if (null == FilePath)
+                    return DateTime.UtcNow;
+
                 return System.IO.File.GetLastWriteTime(FilePath);
             }
         }
@@ -89,12 +90,19 @@ namespace Mater.Library
         {
             get
             {
-                if (Metadata.ContainsKey("title"))
+                if (null != Metadata)
                 {
-                    return Metadata["title"];
+                    if (Metadata.ContainsKey("title"))
+                    {
+                        this.title = Metadata["title"];
+                    }
                 }
 
-                return string.Empty;
+                return this.title;
+            }
+            set
+            {
+                this.title = value;
             }
         }
 
@@ -103,12 +111,19 @@ namespace Mater.Library
         {
             get
             {
-                if (Metadata.ContainsKey("description"))
+                if (null != Metadata)
                 {
-                    return Metadata["description"];
+                    if (Metadata.ContainsKey("description"))
+                    {
+                        this.description = Metadata["description"];
+                    }
                 }
 
-                return string.Empty;
+                return this.description;
+            }
+            set
+            {
+                this.description = value;
             }
         }
 
@@ -213,5 +228,6 @@ namespace Mater.Library
             // Clean the markdown file
             return md.Substring(md.IndexOf('}') + 1);
         }
+        
     }
 }
