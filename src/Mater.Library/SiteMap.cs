@@ -49,7 +49,15 @@ namespace Mater.Library
         {
             if (path.EndsWith(".md"))
             {
-                urls.Add(new SiteMapUrl() { Path = path, LastModifiedDate = File.GetLastWriteTime(path) });
+                string urlPath = string.Empty;
+
+                // Fix index paths
+                if (path.IndexOf("index.md") > 0)
+                    urlPath = path.Remove(path.IndexOf("index.md"));
+                else
+                    urlPath = path.Remove(path.IndexOf(".md"));
+
+                urls.Add(new SiteMapUrl() { Path = urlPath, LastModifiedDate = File.GetLastWriteTime(path) });
             }
 
         }

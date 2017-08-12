@@ -1,14 +1,20 @@
 ﻿using System;
+//using Microsoft.Azure.Search;
+//using Microsoft.Azure.Search.Models;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Mater.Library;
+using System.Data;
 
-namespace Mater
+namespace Mater.Library
 {
-	public class Article
-	{
+//    [SerializePropertyNamesAsCamelCase]
+    public class Article
+    {
+        string urlPath = string.Empty;
+
         [JsonIgnore]
         public Dictionary<string, string> Metadata { get; set; }
 
@@ -23,6 +29,39 @@ namespace Mater
 
         [JsonIgnore]
         public string EditPath { get; set; }
+
+
+        /// <summary>
+        /// This returns the URL friendly path of the article relative to the domain
+        /// </summary>
+        [JsonProperty("path")]
+        public string UrlPath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(urlPath))
+                {
+                    // Remove the articles directory from path
+                    if (EditPath.Contains("articles"))
+                        urlPath = EditPath.Remove(0, "articles".Length);
+                    else
+                        urlPath = EditPath;
+
+                    // Fix index paths
+                    if (EditPath.IndexOf("index.md") > 0)
+                        urlPath = urlPath.Remove(urlPath.IndexOf("index.md"));
+                    else
+                        urlPath = urlPath.Remove(urlPath.IndexOf(".md"));
+                }
+
+                return urlPath;
+
+            }
+            set
+            {
+                urlPath = value;
+            }
+        }
 
         [JsonIgnore]
         public string SettingsPath { get; set; }
@@ -47,45 +86,45 @@ namespace Mater
 
         [JsonProperty("title")]
         public string Title
-		{
-			get
-			{
-				if (Metadata.ContainsKey("title"))
-				{
-					return Metadata["title"];
-				}
+        {
+            get
+            {
+                if (Metadata.ContainsKey("title"))
+                {
+                    return Metadata["title"];
+                }
 
-				return string.Empty;
-			}
-		}
+                return string.Empty;
+            }
+        }
 
         [JsonProperty("description")]
         public string Description
-		{
-			get
-			{
-				if (Metadata.ContainsKey("description"))
-				{
-					return Metadata["description"];
-				}
+        {
+            get
+            {
+                if (Metadata.ContainsKey("description"))
+                {
+                    return Metadata["description"];
+                }
 
-				return string.Empty;
-			}
-		}
+                return string.Empty;
+            }
+        }
 
         [JsonIgnore]
         public string Layout
-		{
-			get
-			{
-				if (Metadata.ContainsKey("layout"))
-				{
-					return Metadata["layout"];
-				}
+        {
+            get
+            {
+                if (Metadata.ContainsKey("layout"))
+                {
+                    return Metadata["layout"];
+                }
 
-				return "_ArticleLayout";
-			}
-		}
+                return "_ArticleLayout";
+            }
+        }
 
 
         [JsonIgnore]
@@ -102,25 +141,25 @@ namespace Mater
             }
         }
 
-		public void ProcessMarkdown()
-		{
-			if (string.IsNullOrEmpty(Markdown))
-				throw new Exception("Markdown data must exist before Article model can be created.");
+        public void ProcessMarkdown()
+        {
+            if (string.IsNullOrEmpty(Markdown))
+                throw new Exception("Markdown data must exist before Article model can be created.");
 
-			// Get metadata from the markdown file
-			Metadata = GetJsonMetaData(Markdown);
+            // Get metadata from the markdown file
+            Metadata = GetJsonMetaData(Markdown);
 
-			// Get the markdown file without json settings
-			string cleanMd = RemoveJsonMetaData(Markdown);
+            // Get the markdown file without json settings
+            string cleanMd = RemoveJsonMetaData(Markdown);
 
-			// Create an instance of MarkdownDeep and set options
-			var md = new MarkdownDeep.Markdown();
-			md.ExtraMode = true;
-			md.SafeMode = false;
+            // Create an instance of MarkdownDeep and set options
+            var md = new MarkdownDeep.Markdown();
+            md.ExtraMode = true;
+            md.SafeMode = false;
 
-			// Perform the markdown tranform and set to Body
-			Body = md.Transform(cleanMd);
-		}
+            // Perform the markdown tranform and set to Body
+            Body = md.Transform(cleanMd);
+        }
 
 
         /// <summary>
@@ -164,7 +203,7 @@ namespace Mater
         /// <param name="md"></param>
         /// <returns></returns>
         static string RemoveJsonMetaData(string md)
-		{
+        {
             if (string.IsNullOrEmpty(md))
                 throw new ArgumentException("The string containing markdown is empty.");
 
@@ -173,6 +212,6 @@ namespace Mater
 
             // Clean the markdown file
             return md.Substring(md.IndexOf('}') + 1);
-		}
-	}
+        }
+    }
 }
