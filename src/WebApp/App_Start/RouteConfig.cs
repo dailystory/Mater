@@ -10,7 +10,16 @@ namespace Mater
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             // Any requests for static files are allowed to pass through
-			routes.IgnoreRoute("{*allfiles}", new { allfiles = @".*\.(css|js|gif|jpg|png)" });
+            //routes.IgnoreRoute("{*allfiles}", new { allfiles = @".*\.(css|js|gif|jpg|png)" });
+
+            // return json sitemap this returns all .md paths in the 
+            // ~/articles directory and all children. This is used by 
+            // search indexer job
+            routes.MapRoute(
+                name: "XML Sitemap",
+                url: "sitemap",
+                defaults: new { controller = "SiteMap", action = "Xml" }
+            );
 
             // return json sitemap this returns all .md paths in the 
             // ~/articles directory and all children. This is used by 
@@ -18,7 +27,7 @@ namespace Mater
             routes.MapRoute(
                 name: "Json Sitemap",
                 url: "JSON/sitemap",
-                defaults: new { controller = "Articles", action = "SitemapJson" }
+                defaults: new { controller = "SiteMap", action = "Json" }
             );
 
             // Return JSon versions of a specific article

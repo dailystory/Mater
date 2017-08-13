@@ -56,7 +56,7 @@
         </nav>
     </div>
     @if (Model.SiteSettings.IsSearchEnabled) { 
-    <div class="container-fluid subhead searchArea">
+    <div class="searchArea">
         <div class="container">
             <div class="row">
                 <div class="col-md-2"></div>
@@ -72,15 +72,14 @@
     }
     <div class="container">
         <div class="row">
-            <div class="hidden-xs col-md-2 tocContent" style="overflow: auto; height:100vh">
+            <div class="hidden-xs col-md-2 tocContent" style="width:200px;overflow: auto; height:100vh">
                 @Html.Action("_ArticleTOC", Model)
             </div>
             <div class="col-md-8" id="bodyContent">
                 @RenderBody()
                 <footer>
-                    Documentation powerd by <a href="https://github.com/dailystory/Mater">Mater</a>
-                    <br/>
-                    Mater is an open source documentation platform maintained by <a href="https://www.dailystory.com">DailyStory</a>
+                    <hr align="left" width="75px"/>
+                    Documentation powered by <a href="https://github.com/dailystory/Mater">Mater</a> maintained by <a href="https://www.dailystory.com">DailyStory</a>.
                 </footer>
             </div>
             <div class="hidden-xs col-md-2" id="infoColumn">
@@ -112,12 +111,15 @@
 
                 if (e.which == 13) {
 
+                    if ('' == $('#search').val()) return;
+
                     window.location = "/search?s=" + $('#search').val();
 
                 }
             });
 
             $('#searchButton').click(function () {
+                if ('' == $('#search').val()) return;
                 window.location = "/search?s=" + $('#search').val();
             });
 

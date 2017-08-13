@@ -54,8 +54,16 @@ namespace Mater.Library
 
         public string Excerpt(int size, bool includeEllipsis = true)
         {
+            if (string.IsNullOrEmpty(Body) || Body.Length < size)
+                return Body;
+
             string excerpt = Regex.Replace(Body, "<.*?>", String.Empty);
 
+            // ensure excerpt is still less than size
+            if (excerpt.Length < size)
+                return excerpt;
+
+            // resize excerpt
             excerpt = excerpt.Substring(0, size);
 
             if (includeEllipsis)
@@ -77,6 +85,7 @@ namespace Mater.Library
 
         public static async Task<PagedList<ArticleDocument>> GetArticleDocumentsAsync(string search, int pageIndex, int pageSize)
         {
+
             if (pageIndex < 0)  // Force valid pageindex
                 pageIndex = 0;
 

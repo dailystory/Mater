@@ -1,4 +1,5 @@
 ﻿{
+  "site": "http://localhost",
   "isSearchEnabled": true,
   "editPath": "https://github.com/dailystory/Mater/tree/master/src/",
   "logo": {

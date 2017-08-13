@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
 using System.Runtime.Caching;
 
@@ -10,8 +9,25 @@ namespace Mater.Library
     {
         public static string CACHE_KEY__SETTINGS = "CACHE_KEY__SETTINGS";
 
+        string site = string.Empty;
+
         [JsonProperty("isSearchEnabled")]
         public bool IsSearchEnabled { get; private set; }
+
+        [JsonProperty("site")]
+        public string Site
+        {
+            get
+            {
+                // ensure we always return the site url
+                // without the trailing slash
+                return site.TrimEnd('/');
+            }
+            private set
+            {
+                site = value;
+            }
+        }
 
         [JsonProperty("editPath")]
         public string EditPath { get; private set; }

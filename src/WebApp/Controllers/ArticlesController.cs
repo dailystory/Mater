@@ -51,18 +51,6 @@ namespace Mater.Controllers
 
         }
 
-#if RELEASE
-        [OutputCache(Duration = 86400)]
-#endif
-        public ActionResult SitemapJson()
-        {
-            List<SiteMapUrl> list = Mater.Library.SiteMap.GetSiteMap(Server.MapPath("~/articles/"));
-
-            // Return the view
-            return Content(JsonConvert.SerializeObject(list), "application/json");
-
-        }
-
         public async Task<ActionResult> Search(string s, int i = 0, int ps = 25)
         {
 
