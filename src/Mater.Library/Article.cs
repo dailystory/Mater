@@ -13,6 +13,7 @@ namespace Mater.Library
         string urlPath = string.Empty;
         string title = string.Empty;
         string description = string.Empty;
+        string layout = string.Empty;
 
         [JsonIgnore]
         public Dictionary<string, string> Metadata { get; set; }
@@ -132,12 +133,26 @@ namespace Mater.Library
         {
             get
             {
-                if (Metadata.ContainsKey("layout"))
+                if (!string.IsNullOrEmpty(this.layout))
+                    return this.layout;
+
+                if (null != Metadata)
                 {
-                    return Metadata["layout"];
+                    if (Metadata.ContainsKey("layout"))
+                    {
+                        this.layout = Metadata["layout"];
+                    }
+                } else
+                {
+                    // default to article layout
+                    this.layout = "_ArticleLayout";
                 }
 
-                return "_ArticleLayout";
+                return this.layout;
+            }
+            set
+            {
+                this.layout = value;
             }
         }
 
@@ -174,6 +189,40 @@ namespace Mater.Library
 
             // Perform the markdown tranform and set to Body
             Body = md.Transform(cleanMd);
+        }
+
+        static int WordCount(string body)
+        {
+            var text = body.Trim();
+            int wordCount = 0, index = 0;
+
+            while (index < text.Length)
+            {
+                // check if current char is part of a word
+                while (index < text.Length && !char.IsWhiteSpace(text[index]))
+                    index++;
+
+                wordCount++;
+
+                // skip whitespace until next word
+                while (index < text.Length && char.IsWhiteSpace(text[index]))
+                    index++;
+            }
+
+            return wordCount;
+        }
+
+        public int TimeToReadInMinutes()
+        {
+            // get a count of the number of words in the body
+            int wordCount = WordCount(this.Body);
+
+            // we'll assume a reading speed of 200 words-per-minute
+            int readingSpeed = 200;
+
+            double minutes = Math.Round((double)wordCount / (double)readingSpeed);
+
+            return (int)minutes;
         }
 
 
