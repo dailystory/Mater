@@ -37,6 +37,13 @@ namespace Mater
                 defaults: new { controller = "Articles", action = "JSON" }
             );
 
+            // AMP versions of a specific article
+            routes.MapRoute(
+                name: "AMP",
+                url: "amp/{*path}",
+                defaults: new { controller = "Articles", action = "Amp" }
+            );
+
             // return json sitemap this returns all .md paths in the 
             // ~/articles directory and all children. This is used by 
             // search indexer job

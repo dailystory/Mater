@@ -9,7 +9,7 @@
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.min.css'>
     <link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/styles.css")'>
+    <link rel="stylesheet" href='@Url.Content("~/Content/styles.min.css")'>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
@@ -72,7 +72,7 @@
     }
     <div class="container">
         <div class="row">
-            <div class="hidden-xs col-md-2 tocContent" style="width:200px;overflow: auto; height:100vh">
+            <div class="hidden-xs col-md-2 tocContent" style="overflow: auto; height:100vh">
                 @Html.Action("_ArticleTOC", Model)
             </div>
             <div class="col-md-8" id="bodyContent">
@@ -105,6 +105,13 @@
             // set the edit path
             Mater.editPath = '@(Model.SiteSettings.EditPath + Model.EditPath)';
             Mater.Article.ready();
+
+            // add title meta
+            @* STUB
+            var meta = $('<div class="metadata"></div>').insertAfter('#bodyContent > h1');
+            $('<time class="date" datetime="@Model.LastModified.ToString()">@Model.LastModified.ToString("yyyy-MM-dd")</time>').appendTo(meta);
+            $('<span class="reading-time">@Model.TimeToReadInMinutes() min to read</span>').appendTo(meta);
+            *@
 
             // handle search click
             $('#search').on('keydown', function (e) {

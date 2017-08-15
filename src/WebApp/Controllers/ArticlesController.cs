@@ -51,6 +51,29 @@ namespace Mater.Controllers
 
         }
 
+        public ActionResult Amp(string path)
+        {
+            Article article = null;
+
+            try
+            {
+                article = LoadArticle(path);
+            }
+            catch
+            {
+                // redirect to 404
+                return View("~/Views/Home/404.cshtml");
+
+            }
+
+            // set the layout to Amp
+            article.Layout = "_AmpLayout";
+
+            // Return the view
+            return View("~/Views/Articles/Index.cshtml", article);
+
+        }
+
         public async Task<ActionResult> Search(string s, int i = 0, int ps = 25)
         {
 

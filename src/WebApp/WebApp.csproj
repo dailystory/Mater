@@ -127,6 +127,7 @@
     <Content Include="Views\Shared\_ArticleLayout.cshtml" />
     <Content Include="Views\Shared\_ArticleTOC.cshtml" />
     <Content Include="Views\Articles\Search.cshtml" />
+    <Content Include="Views\Shared\_AmpLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="articles\index.md" />

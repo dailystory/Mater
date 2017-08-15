@@ -1,0 +1,40 @@
+﻿@model Article
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link rel="canonical" href="@(Model.SiteSettings.Site + Model.UrlPath)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Title</title>
+	<meta name="description" content="@Model.Description">
+
+</head>
+<body>
+
+    <amp-img src="/articles/auto-publish/azure-01.png"
+             layout="responsive"
+             alt="New Azure Web App"></amp-img>
+    @RenderBody()    
+
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-73836974-1"
+            },
+            "triggers": {
+                "default pageview": {
+                    "on": "visible",
+                    "request": "pageview",
+                    "vars": {
+                        "title": "{{title}}"
+                    }
+                }
+            }
+        }
+        </script>
+    </amp-analytics>
+</body>
+
+</html⚡>
