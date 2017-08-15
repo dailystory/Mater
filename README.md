@@ -51,5 +51,8 @@ Mater is built using the [Bootstrap framework](http://getbootstrap.com/), but yo
 
 Simply create a \articles\head.html file - you'll find an example provided in the \articles folder. Content in head.html will be automatically included in the &lt;head&gt; section of your pages.
 
+## Does Mater Provide Search?
+Yes, but to enable search you'll have to [configure a few more things as well as create an instance of Azure Search](https://github.com/dailystory/Mater/wiki/Enabling-Search-with-Mater).
+
 ## Why Mater?
 git-r-done.
