@@ -1,4 +1,12 @@
-﻿body {
+﻿@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v16/oMMgfZMQthOryQo9n22dcuvvDin1pK8aKteLpeZ5c0A.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     color: #333;
@@ -60,7 +68,8 @@ blockquote {
     background-color: #eee;
     padding: 20px 15px;
     margin: 30px 0;
-    font-size:initial;
+    font-size: initial;
+    border-left: solid 5px #999;
 }
 
 blockquote p {
@@ -87,19 +96,21 @@ footer {
     padding-bottom: 100px;
 }
 
-#toc h1 {
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: bold;
-    margin: 40px 0 5px 0;
-    padding: 0;
-    border-bottom: none;
-    color: #333;
-}
+    #toc h1 {
+        font-weight: 500;
+        font-family: Roboto;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 40px 0 5px 0;
+        padding: 0;
+        border-bottom: none;
+        color: #333;
+    }
 
 #toc h2, #toc h3, #toc h4, #toc h5, #toc h6 {
-    font-size: 13px;
+    font-family:Roboto;
+    font-size: 14px;
     margin: 0;
     line-height: 1.68;
 }
