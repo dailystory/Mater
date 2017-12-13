@@ -46,6 +46,9 @@ namespace Mater.Controllers
 
             }
 
+            // Set Access control header
+            Response.AppendHeader("Access-Control-Allow-Origin", "*");
+
             // Return the view
             return Content(JsonConvert.SerializeObject(article), "application/json");
 

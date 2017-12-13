@@ -142,7 +142,10 @@ namespace Mater.Library
                     {
                         this.layout = Metadata["layout"];
                     }
-                } else
+                } 
+
+                // Still no layout set
+                if (string.IsNullOrEmpty(this.layout))
                 {
                     // default to article layout
                     this.layout = "_ArticleLayout";
