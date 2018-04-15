@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-    <link rel="stylesheet" href='@Url.Content("~/Content/styles.min.css")'>
+    @Styles.Render("~/Content/base/css")
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="inputWrapper">
+                    <div class="inputWrapper" style="max-width: 700px;">
                         <input type="text" value="@Model.SearchText" id="search" />
                         <div class="inputButtons"><a href="#" id="searchButton">search</a></div>
                     </div>

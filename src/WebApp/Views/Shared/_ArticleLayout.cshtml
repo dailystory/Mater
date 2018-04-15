@@ -9,6 +9,7 @@
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.min.css'>
     <link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     @Styles.Render("~/Content/base/css")
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
@@ -59,7 +60,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <div class="inputWrapper">
                         <input type="text" id="search" />
                         <div class="inputButtons"><a href="#" id="searchButton">search</a></div>
@@ -71,7 +72,7 @@
     }
     <div class="container">
         <div class="row">
-            <div class="hidden-xs col-md-2 tocContent" style="overflow: auto; height:100vh">
+            <div class="hidden-xs hidden-sm col-md-2 tocContent" style="overflow: auto; height:100vh">
                 @Html.Action("_ArticleTOC", Model)
             </div>
             <div class="col-md-8" id="bodyContent">
@@ -81,7 +82,7 @@
                     Documentation powered by <a href="https://github.com/dailystory/Mater">Mater</a> maintained by <a href="https://www.dailystory.com">DailyStory</a>.
                 </footer>
             </div>
-            <div class="hidden-xs col-md-2" id="infoColumn">
+            <div class="hidden-xs hidden-sm col-md-2" id="infoColumn">
                 <a target="_new" id="suggestEdits" href="@(Model.SiteSettings.EditPath + Model.FilePath)">Suggest Edits</a>
             </div>
         </div>

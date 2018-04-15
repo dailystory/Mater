@@ -1,7 +1,9 @@
 ﻿body {
-    font-family: 'Open Sans',sans-serif;
-    font-size: 16px;
-    color: #333
+    font-family: Roboto, 'Open Sans',sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    font-size: 18px;
+    color: #555
 }
 
 a:active {
@@ -9,22 +11,20 @@ a:active {
 }
 
 h1 {
-    margin-top: 40px;
+    margin: 40px 0 10px;
     padding-bottom: 20px;
-    margin-bottom: 20px;
     border-bottom: solid 1px #DDD;
     font-weight: 300;
-    color: #33383c;
-    font-size: 32px;
+    color: #000;
+    font-size: 50px;
     word-wrap: break-word
 }
 
 h2 {
-    margin-top: 50px;
-    margin-bottom: 5px;
-    font-weight: 700;
-    color: #33383c;
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 30px 0 10px;
+    color: #000;
     word-wrap: break-word
 }
 
@@ -52,8 +52,8 @@ h5 {
 }
 
 p {
-    margin-top: 15px;
-    line-height: 1.5em
+    margin: 10px 0 20px;
+    line-height: 1.8;
 }
 
 blockquote {
@@ -98,14 +98,15 @@ footer {
     }
 
     #toc h2, #toc h3, #toc h4, #toc h5, #toc h6 {
-        font-size: 13px;
+        font-size: 14px;
         margin: 0;
         line-height: 1.68
     }
 
     #toc a {
         margin-left: 0;
-        display: block
+        display: block;
+        font-weight: normal;
     }
 
 nav img {
@@ -222,11 +223,10 @@ ol.step li {
         margin-bottom: 25px;
         line-height: 1.4;
         word-wrap: break-word;
-        font-size: 13px
+        font-size: 14px
     }
 
     #searchContent .date {
-        font-size: 12px;
         color: gray
     }
 
@@ -270,15 +270,14 @@ ol.step li {
     .searchArea .inputWrapper {
         box-shadow: 3px 3px 5px #ddd;
         background-color: #fff;
+        white-space: nowrap;
         border: solid 1px #ddd;
-        max-width: 600px;
         margin-top: 15px
     }
 
     .searchArea input {
-        width: 100%;
-        max-width: 520px;
         height: 40px;
+        width: 100%;
         padding: 10px;
         outline: none;
         border: #fff;
@@ -287,9 +286,8 @@ ol.step li {
 
     .searchArea .inputButtons {
         display: inline-block;
-        float: right;
-        padding-right: 20px;
-        padding-top: 10px
+        position: relative;
+        right: 70px;
     }
 
 @media only screen and (max-width: 500px) {
