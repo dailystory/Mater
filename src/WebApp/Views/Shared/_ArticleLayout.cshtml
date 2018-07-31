@@ -75,15 +75,12 @@
             <div class="hidden-xs hidden-sm col-md-2 tocContent" style="overflow: auto; height:100vh">
                 @Html.Action("_ArticleTOC", Model)
             </div>
-            <div class="col-md-8" id="bodyContent">
+            <div class="col-md-10" id="bodyContent">
                 @RenderBody()
                 <footer>
                     <hr align="left" width="75px"/>
                     Documentation powered by <a href="https://github.com/dailystory/Mater">Mater</a> maintained by <a href="https://www.dailystory.com">DailyStory</a>.
                 </footer>
-            </div>
-            <div class="hidden-xs hidden-sm col-md-2" id="infoColumn">
-                <a target="_new" id="suggestEdits" href="@(Model.SiteSettings.EditPath + Model.FilePath)">Suggest Edits</a>
             </div>
         </div>
     </div>

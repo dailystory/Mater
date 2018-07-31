@@ -139,6 +139,9 @@ namespace Mater.WebJobs
             List<SiteMapUrl> list = null;
             string jsonSiteMap = "{0}/json/sitemap";
 
+            // Set SSL certificates
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             // Get the json sitemap
             try
             {
