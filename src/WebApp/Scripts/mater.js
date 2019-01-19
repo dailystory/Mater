@@ -6,6 +6,9 @@
 │ Maintained by: DailyStory - https://dailystory.com/               │
 └───────────────────────────────────────────────────────────────────┘
 */
+// reset the links
+anchors.add('#bodyContent h2, #bodyContent h3, #bodyContent h4'); // add anchor link UX
+
 var Mater = Mater || {
 
     // path to edit on GithUB
@@ -28,10 +31,6 @@ Mater.Article = {
 
         // reset code highlights
         SyntaxHighlighter.highlight();
-
-        // reset the links
-        anchors.add('#bodyContent h2, #bodyContent h3, #bodyContent h4'); // add anchor link UX
-
 
         /*
         Popstate handler for managing the browser
