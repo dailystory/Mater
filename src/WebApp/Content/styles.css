@@ -257,22 +257,16 @@ ol.step li {
     }
 
 .searchArea {
-    margin-top: -15px;
-    height: 70px;
     border-bottom: 1px solid #dee5e8;
-    background-color: #f6f7f8
+    background-color: #f6f7f8;
+    padding:15px;
 }
-
-    .searchArea > div {
-        margin-top: 16px
-    }
 
     .searchArea .inputWrapper {
         box-shadow: 3px 3px 5px #ddd;
         background-color: #fff;
         white-space: nowrap;
         border: solid 1px #ddd;
-        margin-top: 15px
     }
 
     .searchArea input {

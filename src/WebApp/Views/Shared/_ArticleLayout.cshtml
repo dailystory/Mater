@@ -56,16 +56,11 @@
         </nav>
     </div>
     @if (Model.SiteSettings.IsSearchEnabled) { 
-    <div class="searchArea">
+    <div class="container-fluid searchArea">
         <div class="container">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-sm-12 col-md-8">
-                    <div class="inputWrapper">
-                        <input type="text" id="search" />
-                        <div class="inputButtons"><a href="#" id="searchButton">search</a></div>
-                    </div>
-                </div>
+            <div class="inputWrapper">
+                <input type="text" id="search" />
+                <div class="inputButtons"><a href="#" id="searchButton">search</a></div>
             </div>
         </div>
     </div>
@@ -75,7 +70,7 @@
             <div class="hidden-xs hidden-sm col-md-2 tocContent" style="overflow: auto; height:100vh">
                 @Html.Action("_ArticleTOC", Model)
             </div>
-            <div class="col-md-10" id="bodyContent">
+            <div class="col-sm-12 col-md-10" id="bodyContent">
                 @RenderBody()
                 <footer>
                     <hr align="left" width="75px"/>
