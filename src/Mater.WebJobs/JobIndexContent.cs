@@ -91,6 +91,9 @@ namespace Mater.WebJobs
             // Convert to ArticleDocument
             foreach (Article a in articles)
             {
+                if (null == a)
+                    continue;
+
                 ArticleDocument d = new ArticleDocument();
                 d.FromArticle(a);
                 list.Add(d);
